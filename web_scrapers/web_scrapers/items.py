@@ -27,3 +27,12 @@ class RottenItem(scrapy.Item):
     birthplace = scrapy.Field()
     birthday = scrapy.Field()
     pass
+
+
+class ImdbItem(scrapy.Item):
+    name = scrapy.Field()
+    img_url = scrapy.Field()
+    filmography = scrapy.Field()
+    bio = scrapy.Field()
+    url = scrapy.Field()
+    pass
