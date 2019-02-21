@@ -16,3 +16,14 @@ class RRItem(scrapy.Item):
     poster_img_url = scrapy.Field()
     cast = scrapy.Field()
     pass
+
+class RottenItem(scrapy.Item):
+    url = scrapy.Field()
+    name = scrapy.Field()
+    filmography = scrapy.Field()
+    bio = scrapy.Field() 
+    roles = scrapy.Field()
+    offscreen_role = scrapy.Field()
+    birthplace = scrapy.Field()
+    birthday = scrapy.Field()
+    pass
