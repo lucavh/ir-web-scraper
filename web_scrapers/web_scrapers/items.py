@@ -1,38 +1,49 @@
 import scrapy
 
-class NewsItem(scrapy.Item):
-    url = scrapy.Field()
-    timestamp = scrapy.Field()
-    title = scrapy.Field()
-    content = scrapy.Field()
-    pass
-
-class RRItem(scrapy.Item):
-    url = scrapy.Field()
-    timestamp = scrapy.Field()
-    title = scrapy.Field()
-    rating_10 = scrapy.Field()
-    content = scrapy.Field()
-    poster_img_url = scrapy.Field()
-    cast = scrapy.Field()
-    pass
-
-class RottenItem(scrapy.Item):
-    url = scrapy.Field()
+class ActorItem(scrapy.Item):
     name = scrapy.Field()
-    filmography = scrapy.Field()
-    bio = scrapy.Field() 
-    roles = scrapy.Field()
-    offscreen_role = scrapy.Field()
-    birthplace = scrapy.Field()
+    url_imdb = scrapy.Field()
+    url_rottom = scrapy.Field()
+    url_img = scrapy.Field()
+    bio_imdb = scrapy.Field()
+    bio_rottom = scrapy.Field()
     birthday = scrapy.Field()
+    birthplace = scrapy.Field()
+    filmography = scrapy.Field()
+    quotes_imdb = scrapy.Field()
+    quotes_rottom = scrapy.Field()
+    quotes_brainyquotes = scrapy.Field()
+    movie_urls = scrapy.Field()
     pass
 
+class MovieItem(scrapy.Item):
+    url_imdb = scrapy.Field()
+    url_rottom = scrapy.Field()
+    url_metacritic = scrapy.Field()
+    url_img = scrapy.Field()
+    title = scrapy.Field()
+    year = scrapy.Field()
+    genres = scrapy.Field()
+    reviews = scrapy.Field()
+    pass
 
-class ImdbItem(scrapy.Item):
-    name = scrapy.Field()
-    img_url = scrapy.Field()
-    filmography = scrapy.Field()
-    bio = scrapy.Field()
+class TmzItem(scrapy.Item):
     url = scrapy.Field()
+    timestamp = scrapy.Field()
+    title = scrapy.Field()
+    content = scrapy.Field()
+    pass
+
+class MoviewebItem(scrapy.Item):
+    url = scrapy.Field()
+    timestamp = scrapy.Field()
+    title = scrapy.Field()
+    content = scrapy.Field()
+    pass
+
+class HollywoodlifeItem(scrapy.Item):
+    url = scrapy.Field()
+    timestamp = scrapy.Field()
+    title = scrapy.Field()
+    content = scrapy.Field()
     pass
