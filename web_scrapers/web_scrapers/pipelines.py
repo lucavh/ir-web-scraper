@@ -40,7 +40,7 @@ class ActorPipeline(object):
       self.file_movieweb.close()
       self.file_hollywoodlife.close()
 
-      if movie_urls != []:
+      if self.movie_urls != []:
         self.file_urls = open('../data/movie_urls.txt', 'w')
         self.file_urls.write(str(list(set(self.movie_urls))))
         self.file_urls.close()

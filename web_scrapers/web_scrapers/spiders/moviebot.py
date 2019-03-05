@@ -2,13 +2,16 @@ import scrapy
 import requests
 from bs4 import BeautifulSoup
 from web_scrapers.items import MovieItem
+import ast
 
 class ImdbbotSpider(scrapy.Spider):
     name = 'movieBot'
     allowed_domains = ['www.imdb.com', 'www.rottentomatoes.com', 'www.metacritic.com']
 
     with open('../data/movie_urls.txt') as f:
-        start_urls = [url.strip() for url in f.readlines()]
+        urls = ast.literal_eval(f.readlines()[0])
+
+    start_urls = ['https://www.imdb.com' + url.strip() for url in urls]
 
     def parse(self, response):
         with open('../data/urls_imdb_2.txt', 'a') as f:
@@ -67,7 +70,7 @@ class ImdbbotSpider(scrapy.Spider):
         movie['genres'] += response.xpath('//div[@class="genres"]/span/span/text()').extract()
 
         metacr_reviews_link = response.xpath('//*[@id="nav_to_metascore"]/div[1]/div[5]/a/@href').get()
-        metacr_reviews_page = response.urljoin(metacr_reviews_links)
+        metacr_reviews_page = response.urljoin(metacr_reviews_link)
 
         yield scrapy.Request(metacr_reviews_page, callback=self.get_metacritic_reviews, meta={'movie': movie})
 
